@@ -15,7 +15,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <version.camel>4.0.0-SNAPSHOT</version.camel>
+        <version.camel>4.0.0-M3</version.camel>
         <version.kafka>3.3.2</version.kafka>
         <version.slf4j>2.0.6</version.slf4j>
         <java.main.class>com.github.vjuranek.camel.CamelDebezium</java.main.class>
