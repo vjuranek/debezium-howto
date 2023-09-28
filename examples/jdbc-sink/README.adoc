@@ -1,0 +1,10 @@
+= Basic JDBC sink example
+
+* `export DEBEZIUM_VERSION=2.4`
+* `docker compose up`
+* `curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @mysql-source.json`
+* `curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @postgres-sink.json`
+* `PGPASSWORD=postgres docker-compose exec postgres psql -U postgres -h localhost -c 'select * from public.dbserver1_inventory_customers;'`
+* `exec mysql mysql -h localhost -u mysqluser --password=mysqlpw -e "insert into inventory.customers values (1005, 'aaa', 'bbb', 'ccc@example.com')"`
+* `PGPASSWORD=postgres docker-compose exec postgres psql -U postgres -h localhost -c 'select * from public.dbserver1_inventory_customers;'`
+* `docker compose down`
