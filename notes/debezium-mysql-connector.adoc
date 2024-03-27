@@ -1,5 +1,0 @@
-= Debezium MySQL connector
-
-== Features
-
-* Compressed binlog support - available in since Debezium 2.0 (https://debezium.io/blog/2022/09/16/debezium-2.0-beta2-released/#mysql-binlog-compression-support[added in 2.0-beta2])
