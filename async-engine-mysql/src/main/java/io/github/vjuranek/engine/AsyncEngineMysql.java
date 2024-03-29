@@ -29,9 +29,16 @@ public class AsyncEngineMysql {
         props.setProperty("database.user", "debezium");
         props.setProperty("database.password", "dbz");
         props.setProperty("database.server.id", "12345");
+        props.setProperty("table.include.list", "inventory.customers");
         props.setProperty("topic.prefix", "test-topic");
         props.setProperty("schema.history.internal", "io.debezium.storage.file.history.FileSchemaHistory");
         props.setProperty("schema.history.internal.file.filename", "/tmp/schema_history.dat");
+
+        // SMT properties
+        props.setProperty("transforms", "replace");
+        props.setProperty("transforms.replace.type", "org.apache.kafka.connect.transforms.ReplaceField$Value");
+        props.setProperty("transforms.replace.exclude", "before");
+
 
         DebeziumEngine<ChangeEvent<String, String>> engine = DebeziumEngine
                 .create(KeyValueHeaderChangeEventFormat.of(Json.class, Json.class, Json.class),
