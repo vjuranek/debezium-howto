@@ -34,6 +34,12 @@ public class AsyncEngineMysql {
         props.setProperty("schema.history.internal", "io.debezium.storage.file.history.FileSchemaHistory");
         props.setProperty("schema.history.internal.file.filename", "/tmp/schema_history.dat");
 
+        // converter properties
+        props.setProperty("key.converter", "org.apache.kafka.connect.json.JsonConverter");
+        props.setProperty("value.converter", "org.apache.kafka.connect.json.JsonConverter");
+        props.setProperty("key.converter.schemas.enable", "false");
+        props.setProperty("value.converter.schemas.enable", "false");
+
         // SMT properties
         props.setProperty("transforms", "replace");
         props.setProperty("transforms.replace.type", "org.apache.kafka.connect.transforms.ReplaceField$Value");
