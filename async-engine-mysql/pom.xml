@@ -14,7 +14,7 @@
 
         <version.debezium>2.6.0.CR1</version.debezium>
         <version.slf4j>2.0.12</version.slf4j>
-        <java.main.class>io.github.vjuranek.engine.AsyncEngineMysql</java.main.class>
+        <java.main.class>io.github.vjuranek.engine.AsyncEngineMysqlExternalProps</java.main.class>
     </properties>
 
     <dependencies>
