@@ -22,4 +22,4 @@
 === Running async profiler during `pgbench` run
 
 * `export PATH=$PATH_TO_PROFILER/async-profiler-3.0-linux-x64/bin:$PATH`
-* `asprof -d 30 -f ./pgbench_embedded.html  jps -l|grep async-engine-postgres|cut -d " " -f 1
+* `asprof -d 30 -f ./pgbench_embedded.html  jps -l|grep async-engine-postgres|cut -d " " -f 1`
