@@ -1,0 +1,25 @@
+= Debezium engine with Postgres
+
+== Consuming `pgbench` records
+
+=== Prepare the database
+
+* `docker run --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 quay.io/debezium/example-postgres`
+* `psql -h 127.0.0.1 -U postgres`
+* `CREATE DATABASE benchmark;`
+* `psql -h 127.0.0.1 -U postgres -d benchmark`
+* `pgbench -h 127.0.0.1 -U postgres -i benchmark`
+
+=== Running the engine app
+
+* `mvn clean package`
+* `java -jar target/async-engine-postgres-1.0-SNAPSHOT.jar`
+
+=== Running `pgbench` benchmark
+
+* `pgbench -h 127.0.0.1 -U postgres -c 10 -j 2 -t 10000 benchmark`
+
+=== Running async profiler during `pgbench` run
+
+* `export PATH=$PATH_TO_PROFILER/async-profiler-3.0-linux-x64/bin:$PATH`
+* `asprof -d 30 -f ./pgbench_embedded.html  jps -l|grep async-engine-postgres|cut -d " " -f 1
