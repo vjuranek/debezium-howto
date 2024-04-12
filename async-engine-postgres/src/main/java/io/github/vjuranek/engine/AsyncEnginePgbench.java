@@ -30,6 +30,7 @@ public class AsyncEnginePgbench {
         props.setProperty("database.password", "postgres");
         props.setProperty("database.dbname", "benchmark");
         props.setProperty("table.include.list", "public.pgbench_.*");
+        props.setProperty("plugin.name", "pgoutput");
         props.setProperty("topic.prefix", "pgbench");
 
         // converter properties
