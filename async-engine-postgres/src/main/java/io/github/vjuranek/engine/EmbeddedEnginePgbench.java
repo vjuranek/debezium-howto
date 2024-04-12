@@ -21,7 +21,7 @@ public class EmbeddedEnginePgbench {
         props.setProperty("connector.class", "io.debezium.connector.postgresql.PostgresConnector");
         props.setProperty("offset.storage", "org.apache.kafka.connect.storage.FileOffsetBackingStore");
         props.setProperty("offset.storage.file.filename", "/tmp/offsets.dat");
-        props.setProperty("offset.flush.interval.ms", "5000");
+        props.setProperty("offset.flush.interval.ms", "300000");
 
         // connector properties
         props.setProperty("database.hostname", "127.0.0.1");
@@ -54,7 +54,7 @@ public class EmbeddedEnginePgbench {
         executor.execute(engine);
         executor.shutdown();
         try {
-            TimeUnit.SECONDS.sleep(120);
+            TimeUnit.SECONDS.sleep(300);
             engine.close();
             executor.awaitTermination(5, TimeUnit.SECONDS);
         } catch (InterruptedException | IOException e) {

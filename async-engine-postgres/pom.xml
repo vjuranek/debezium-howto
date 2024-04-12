@@ -12,9 +12,9 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
 
-        <version.debezium>2.6.0.Final</version.debezium>
+        <version.debezium>2.7.0-SNAPSHOT</version.debezium>
         <version.slf4j>2.0.12</version.slf4j>
-        <java.main.class>io.github.vjuranek.engine.EmbeddedEnginePgbench</java.main.class>
+        <java.main.class>io.github.vjuranek.engine.AsyncEnginePgbench</java.main.class>
     </properties>
 
     <dependencies>
