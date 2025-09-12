@@ -1,0 +1,9 @@
+= Exporting data from Postgresql to QuestDB
+
+* `export DEBEZIUM_VERSION=3.3`
+* `docker compose up --build`
+* `curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @postgres-source.json`
+* `curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @questdb-sink.json`
+* `PGPASSWORD=postgres docker compose exec postgres psql -U postgres -h localhost -c "update inventory.customers set email='test@domain.com' where id=1004;"`
+* visit `http://localhost:9000/index.html` and run `select * from customers;`
+* `docker compose down`
