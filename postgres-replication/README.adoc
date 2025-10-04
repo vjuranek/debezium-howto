@@ -1,0 +1,6 @@
+* `docker compose -f docker-compose-postgres.yaml up --build`
+* `psql -h localhost -U postgres postgres`
+* `insert into test_table values (1, 'aaa'),(2,'bbb'),(3,'ccc');`
+* `psql -h localhost -p 15432 -U postgres postgres`
+* `select * from test_table;`
+* `docker compose -f docker-compose-postgres.yaml down`
